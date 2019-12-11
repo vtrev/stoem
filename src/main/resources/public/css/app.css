@@ -1,0 +1,63 @@
+
+.sticky-topbar {
+  width: 100%;
+}
+
+.menu li:hover{
+text-decoration: underline;
+}
+
+.top-bar{
+position: relative;
+  background-color: black;
+  background: rgba(0, 0, 0, 0.6) !important; 
+  z-index: 20;
+  
+ }
+
+.top-bar-left
+.menu, 
+.menu a, ul{
+    background: rgba(255, 255, 255, 0) !important;
+}
+
+body{
+
+  background-image: url("../images/background.png") !important;
+
+}
+
+.adjust{
+  text-align: center;
+}
+
+.backdrop{
+  background: rgba(0, 0, 0, 0.2) !important; 
+}
+
+.main-text{
+  color: #1496D2;
+  font-size: 65px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px black;
+}
+.main-subtext{
+  color: white;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px black;
+}
+
+
+.lead {
+  padding-left:4vw !important;
+  padding-right:4vw !important;
+  border-radius:20px !important;
+  text-transform: uppercase !important;
+}
+
+#logo{
+  width:15vw;
+  height:7vh;
+}
+
