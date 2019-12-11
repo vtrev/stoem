@@ -92,16 +92,16 @@
 }
 
 .contact-us-list .address::before {
-  content: '\f041';
+  background-image: url("../images/locationIcon.png") !important;
   margin-left: 0.4rem;
   margin-right: 2.3rem;
 }
 
 .contact-us-list .email::before {
-  content: '\f003';
+  background-image: url("../images/mailing.png") !important;
 }
 
 .contact-us-list .phone::before {
-  content: '\f098';
+  background-image: url("../images/calling.png") !important;
 }
 
