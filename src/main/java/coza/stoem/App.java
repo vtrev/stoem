@@ -19,7 +19,7 @@ public class App{
         TransactionService transactionService = new TransactionService();
 
 
-        get("/", (request,response) -> {
+        get("/get-stats", (request,response) -> {
             List<Transaction> ts = transactionService.getTransactions();
             Gson gson = new Gson();
             JsonElement element = gson.toJsonTree(ts, new TypeToken<List<Transaction>>() {}.getType());
