@@ -18,7 +18,20 @@ public class App{
     //set static resources directory
     static{
         staticFiles.location("/public");
+        port(getPort());
     }
+
+    static int getPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
+
+
+
     public static void main(String[] arguments){
         TransactionService transactionService = new TransactionService();
 
@@ -44,6 +57,7 @@ public class App{
                     new ModelAndView(model, "form.handlebars"));
         });
 
+
         get("/request", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new HandlebarsTemplateEngine().render(
@@ -62,19 +76,6 @@ public class App{
                     new ModelAndView(model, "thank.handlebars"));
         });
 
-        post("/capture-form",(request,response) -> {
-            Map<String, Object> model = new HashMap<>();
-            final HashMap<String, String> queryParams = new HashMap<>();
-                request.queryMap().toMap().forEach((k, v) -> {
-                queryParams.put(k, v[0]);
-            });
-
-            Transaction transaction = new Transaction(queryParams);
-                transactionService.capture(transaction);
-                 return new HandlebarsTemplateEngine().render(
-                    new ModelAndView(model, "select.handlebars"));
-                //end of capture
-        });
 
         get("*", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
