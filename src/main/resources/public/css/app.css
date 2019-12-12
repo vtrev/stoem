@@ -208,7 +208,7 @@ body{
 
 .people-you-might-know .add-people-section .about-people .about-people-avatar {
   padding-right: 0.5rem;
-  padding-left: 86px;
+  padding-left: 0;
 }
 
 .people-you-might-know .add-people-section .about-people .about-people-avatar .avatar-image {
@@ -321,4 +321,18 @@ color:white;
 
 .people-you-might-know {
   text-align: center;
+}
+
+.pop-text{
+  margin: auto;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 30vh;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.thank{
+  width:100vw;
+  height:100vh;
+  border:solid;
 }
