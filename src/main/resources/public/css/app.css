@@ -24,7 +24,9 @@ position: relative;
 body{
 
   background-image: url("../images/background.png") !important;
-
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .adjust{
@@ -277,44 +279,4 @@ body{
 
 .form-set{
   margin-top:10vh;
-}
-
-.OOF{
-  font-size: 20vh;
-  margin-top:10vh;
-}
-
-
-.large-6:last-child {
-  text-align: right;
-}
-
-.four-oh-four {
-  font-size: 50vh;
-  text-align: center;
-  color: white;
-  animation: flashing 1.5s infinite
-}
-.large-6:last-child {
- text-align: right;
-}
-
-.OOF {
-  color: white
-}
-
-@keyframes flashing{
-  0%{ color: red;}
-  70%{ color: transparent;}
-
-  80%{color: transparent}
-  100%{color:red;}
-}
-
-body{
-  background: silver;
-}
-
-.msg{
-color:white;
 }
