@@ -4,8 +4,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import coza.stoem.services.TransactionService;
 import com.google.gson.Gson;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -26,6 +30,12 @@ public class App{
 
             JsonArray jsonArray = element.getAsJsonArray();
             return jsonArray;
+        });
+
+        get("/", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new HandlebarsTemplateEngine().render(
+                    new ModelAndView(model, "index.handlebars"));
         });
 
         post("/capture-form",(request,response) -> {
