@@ -50,6 +50,12 @@ public class App{
                     new ModelAndView(model, "mainform.handlebars"));
         });
 
+        get("/submitted", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new HandlebarsTemplateEngine().render(
+                    new ModelAndView(model, "thank.handlebars"));
+        });
+
         post("/submitted", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new HandlebarsTemplateEngine().render(
