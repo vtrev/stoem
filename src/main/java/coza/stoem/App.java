@@ -46,7 +46,7 @@ public class App{
         
 
         post("/capture-form",(request,response) -> {
-
+            Map<String, Object> model = new HashMap<>();
             final HashMap<String, String> queryParams = new HashMap<>();
                 request.queryMap().toMap().forEach((k, v) -> {
                 queryParams.put(k, v[0]);
@@ -54,7 +54,8 @@ public class App{
 
             Transaction transaction = new Transaction(queryParams);
                 transactionService.capture(transaction);
-                return "succsess";
+                 return new HandlebarsTemplateEngine().render(
+                    new ModelAndView(model, "select.handlebars"));
                 //end of capture
         });
 

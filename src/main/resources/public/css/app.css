@@ -23,7 +23,10 @@ position: relative;
 
 body{
 
-  background-image: url("../images/background.png") !important;
+  background-image: url("../images/background.jpeg") !important;
+  background-repeat: no-repeat !important;
+  background-size:cover !important;
+
 
 }
 
@@ -311,10 +314,12 @@ body{
   100%{color:red;}
 }
 
-body{
-  background: silver;
-}
+
 
 .msg{
 color:white;
+}
+
+.people-you-might-know {
+  text-align: center;
 }
