@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/form.css">
+    <link rel="stylesheet" href="../public/css/app.css">
+    <link rel="stylesheet" href="../public/css/foundation.css">
+    <link rel="stylesheet" href="../public/css/foundation.min.css">
+    <link rel="icon" href="./images/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="icon" href="./images/logo.ico">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>stoem</title>
+</head>
+<body>
+
+<div class="top-bar-container" data-sticky-container>
+    <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <ul class="menu">
+                    <li class="logo"><img src="../public/images/logo.png" alt="logo" id="logo"></li>
+
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <ul class="menu" data-dropdown-menu>
+
+                    <li><a href="#"><h3>About Us</h3></a></li>
+                    <li><a href="#"><h3>Contact</h3></a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row medium-unstack">
+        <section class="contact-us-section">
+    <div class="row medium-unstack">
+        <div class="container">
+            <div class="row center">
+                <form class="col l12 s12 m12" method="POST" action="capture-form">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="restaurant" id="restaurant" type="text" class="validate" required>
+                            <label for="restaurant">Restaurant</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input name="phone" id="Phone" type="text" class="validate" required>
+                            <label for="Phone">Phone</label>
+                        </div>
+    
+                        <div class="input-field col s12">
+                            <input name="details" id="details" type="Text" class="validate" required>
+                            <label for="details">Details</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input name="feedCount" id="feedCount" type="number" class="validate" required>
+                            <label for="feedCount">Feed Count</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <button type="submit" class="button large primary lead">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </section>>
+    </div>
+        </div>
+  
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/vendor/foundation.js"></script>
+<script src="./js/vendor/foundation.min.js"></script>
+<script src="./js/vendor/jquery.js"></script>
+<script src="./js/vendor/what-input.js"></script>
+
+</body>
+</html>
