@@ -37,6 +37,12 @@ public class App{
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "index.handlebars"));
         });
+
+        get("/donate", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new HandlebarsTemplateEngine().render(
+                    new ModelAndView(model, "form.handlebars"));
+        });
         
 
         post("/capture-form",(request,response) -> {
@@ -50,6 +56,16 @@ public class App{
                 transactionService.capture(transaction);
                 return "succsess";
                 //end of capture
+        });
+
+        get("*", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            if(!req.pathInfo().startsWith("/static")){
+                res.status(404);
+                return new HandlebarsTemplateEngine().render(
+                        new ModelAndView(model, "404.handlebars"));
+            }
+            return null;
         });
     }
 }
