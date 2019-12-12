@@ -23,18 +23,10 @@ position: relative;
 
 body{
 
-<<<<<<< HEAD
   background-image: url("../images/background.jpeg") !important;
-  background-repeat: no-repeat !important;
-  background-size:cover !important;
-
-
-=======
-  background-image: url("../images/background.png") !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
->>>>>>> 54b06201402097ce3bfc002c73181851bb9dbb93
 }
 
 .adjust{
