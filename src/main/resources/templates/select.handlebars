@@ -7,7 +7,12 @@
   <link rel="stylesheet" href="./css/app.css">
   <link rel="stylesheet" href="./css/foundation.css">
   <link rel="stylesheet" href="./css/foundation.min.css">
-
+    <style>
+.mapboxgl-popup {
+max-width: 400px;
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+</style>
   {{!-- <link rel="stylesheet" href="../public/css/app.css">
     <link rel="stylesheet" href="../public/css/foundation.css">
     <link rel="stylesheet" href="../public/css/foundation.min.css"> --}}
@@ -46,20 +51,52 @@
       </div>
     </div>
   </div>
-
   <div class="thank">
     <div class="grid-container ">
 
       <div class="grid-x grid-padding-x  text-center form-set">
         <div class="large-6 medium-6 cell">
-     <div id='map' style='width: 400px; height: 300px;'></div>
-<script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoicmljaGFyZDAwNyIsImEiOiJjazQydTNlazgwMHk4M2xveDZ3Z204c2d0In0.59iG9Gu3Zec_yhRHtKiDUQ';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
-  });
-</script>
+     <div id='map' style='width: 100%; height: 100%; background-repeat: no-repeat;'></div>
+      <script>
+          mapboxgl.accessToken = 'pk.eyJ1IjoicmljaGFyZDAwNyIsImEiOiJjazQydTNlazgwMHk4M2xveDZ3Z204c2d0In0.59iG9Gu3Zec_yhRHtKiDUQ';
+          var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: [18.439373,-33.923891],
+          zoom: 9
+          });
+          map.addControl(new mapboxgl.NavigationControl());
+          map.on('load', function() {
+// Add a layer showing the places.
+          map.addLayer({
+              'id': 'places',
+'type': 'symbol',
+'source': {
+'type': 'geojson',
+'data': {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'properties': {
+'description':
+'<strong>Make it Mount Pleasant</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">Make it Mount Pleasant</a> is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>',
+'icon': 'theatre'
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [18.038659, 33.931567]
+}
+}]
+}
+},
+'layout': {
+'icon-image': '{icon}-15',
+'icon-allow-overlap': true
+}
+});
+}
+      </script>
 
         </div>
         <div class="large-6 medium-6 cell">
