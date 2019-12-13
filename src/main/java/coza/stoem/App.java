@@ -3,6 +3,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+import coza.stoem.services.DonorExtractor;
+import coza.stoem.services.OrganisationExtractor;
 import coza.stoem.services.TransactionService;
 
 import java.io.BufferedReader;
@@ -82,13 +84,16 @@ public class App{
 
         post("/submitted", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            OrganisationExtractor extract = new OrganisationExtractor(req.body());
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "thank.handlebars"));
         });
 
         post("/capture-form", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-
+            DonorExtractor extract = new DonorExtractor(req.body());
+            System.out.println(extract.getLocation());
+            System.out.println(extract.getFeedCount());
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "select.handlebars"));
         });
