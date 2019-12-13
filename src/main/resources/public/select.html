@@ -6,7 +6,8 @@
     <!-- <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./css/foundation.css">
     <link rel="stylesheet" href="./css/foundation.min.css"> -->
-
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="../public/css/app.css">
     <link rel="stylesheet" href="../public/css/foundation.css">
     <link rel="stylesheet" href="../public/css/foundation.min.css">
@@ -16,6 +17,7 @@
     <title>stoem</title>
 </head>
 <body>
+
 
             <div class="top-bar-container" data-sticky-container>
                     <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
@@ -41,9 +43,9 @@
      <div class="grid-container ">
                           
         <div class="grid-x grid-padding-x  text-center form-set">
-            <div class="large-6 medium-6 cell backdrop">
-                <img src="https://maps.googleapis.com/maps/api/staticmap?center=campbell&zoom=13&scale=false&size=600x300&maptype=roadmap&sensor=false&format=png&visual_refresh=true" alt="Google Map of campbell" alt="" />
-              </div>
+            <div class="large-6 medium-6">
+                <div id="map" style='width: 400px; height: 300px;'></div>
+            </div>
               <div class="large-6 medium-6 cell backdrop">
                   <div class="people-you-might-know">
                       <div class="add-people-header">
@@ -139,6 +141,15 @@
     <script src="../public/js/vendor/foundation.min.js"></script>
     <script src="../public/js/vendor/jquery.js"></script>
     <script src="../public/js/vendor/what-input.js"></script>
+<script>
+                  mapboxgl.accessToken = 'pk.eyJ1IjoicmljaGFyZDAwNyIsImEiOiJjazQydTNlazgwMHk4M2xveDZ3Z204c2d0In0.59iG9Gu3Zec_yhRHtKiDUQ';
+                  var map = new mapboxgl.Map({
+                  container: 'map',
+                  style: 'mapbox://styles/mapbox/streets-v11'
+                  center: [-122.447303, 37.753574]
+                  });
+              </script>
+
     
 </body>
 </html>

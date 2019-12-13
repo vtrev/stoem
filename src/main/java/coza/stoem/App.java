@@ -57,7 +57,16 @@ public class App{
                     new ModelAndView(model, "form.handlebars"));
         });
 
-
+        get("/request", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new HandlebarsTemplateEngine().render(
+                    new ModelAndView(model, "mainform.handlebars"));
+        });
+        get("/selectingData", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new HandlebarsTemplateEngine().render(
+                    new ModelAndView(model, "select.handlebars"));
+        });
         post("/capture-form",(request,response) -> {
 
             final HashMap<String, String> queryParams = new HashMap<>();
