@@ -3,10 +3,17 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+import coza.stoem.services.DonorExtractor;
+import coza.stoem.services.OrganisationExtractor;
 import coza.stoem.services.TransactionService;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -68,7 +75,7 @@ public class App{
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "select.handlebars"));
         });
-        
+
         get("/submitted", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new HandlebarsTemplateEngine().render(
@@ -77,14 +84,23 @@ public class App{
 
         post("/submitted", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            OrganisationExtractor extract = new OrganisationExtractor(req.body());
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "thank.handlebars"));
         });
 
-        post("/capture-form", (req, res) -> {
+        post("/capture-form",(request,response) -> {
             Map<String, Object> model = new HashMap<>();
+            final HashMap<String, String> queryParams = new HashMap<>();
+            request.queryMap().toMap().forEach((k, v) -> {
+                queryParams.put(k, v[0]);
+            });
+
+            Transaction transaction = new Transaction(queryParams);
+            transactionService.capture(transaction);
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "select.handlebars"));
+            //end of capture
         });
 
 
