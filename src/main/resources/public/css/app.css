@@ -24,7 +24,7 @@ position: relative;
 body{
 
   background-image: url("../images/background.jpeg") !important;
-  background-repeat: no-repeat !important;
+  background-repeat: no-r epeat !important;
   background-size: cover !important;
   background-position: center !important;
 }
@@ -356,4 +356,3 @@ color:white;
 .switch.warning input:checked ~ .switch-paddle {
   background: #ffae00;
 }
-
