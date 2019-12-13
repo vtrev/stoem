@@ -89,13 +89,18 @@ public class App{
                     new ModelAndView(model, "thank.handlebars"));
         });
 
-        post("/capture-form", (req, res) -> {
+        post("/capture-form",(request,response) -> {
             Map<String, Object> model = new HashMap<>();
-            DonorExtractor extract = new DonorExtractor(req.body());
-            System.out.println(extract.getLocation());
-            System.out.println(extract.getFeedCount());
+            final HashMap<String, String> queryParams = new HashMap<>();
+            request.queryMap().toMap().forEach((k, v) -> {
+                queryParams.put(k, v[0]);
+            });
+
+            Transaction transaction = new Transaction(queryParams);
+            transactionService.capture(transaction);
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "select.handlebars"));
+            //end of capture
         });
 
 
