@@ -24,7 +24,7 @@ position: relative;
 body{
 
   background-image: url("../images/background.jpeg") !important;
-  background-repeat: no-repeat !important;
+  background-repeat: no-r epeat !important;
   background-size: cover !important;
   background-position: center !important;
 }
@@ -337,21 +337,22 @@ color:white;
   border:solid;
 }
 
-
-.switch-toggle-wrapper {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1rem;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+.switch input:checked ~ .switch-paddle, .switch.primary input:checked ~ .switch-paddle {
+  background: #1779ba;
 }
 
-.switch-toggle-wrapper .switch {
-  margin-bottom: 0;
+.switch.secondary input:checked ~ .switch-paddle {
+  background: #767676;
 }
 
+.switch.success input:checked ~ .switch-paddle {
+  background: #3adb76;
+}
+
+.switch.alert input:checked ~ .switch-paddle {
+  background: #cc4b37;
+}
+
+.switch.warning input:checked ~ .switch-paddle {
+  background: #ffae00;
+}

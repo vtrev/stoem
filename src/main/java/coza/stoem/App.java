@@ -68,6 +68,11 @@ public class App{
             return new HandlebarsTemplateEngine().render(
                     new ModelAndView(model, "mainform.handlebars"));
         });
+        get("/selectingData", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new HandlebarsTemplateEngine().render(
+                    new ModelAndView(model, "select.handlebars"));
+        });
 
         get("/submitted", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
