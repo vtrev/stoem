@@ -14,15 +14,13 @@
     <script src="https://kit.fontawesome.com/577bfa7a63.js" crossorigin="anonymous"></script>
     <link rel="icon" href="./images/logo.ico">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    {{!-- <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' /> --}}
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>stoem</title>
 </head>
 
 <body>
-.switch-toggle-wrapper .switch {
-  margin-bottom: 0;
-} */
 
   <div class="top-bar-container" data-sticky-container>
     <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
@@ -54,9 +52,15 @@
 
       <div class="grid-x grid-padding-x  text-center form-set">
         <div class="large-6 medium-6 cell">
-          <img
-            src="https://maps.googleapis.com/maps/api/staticmap?center=campbell&zoom=13&scale=false&size=600x300&maptype=roadmap&sensor=false&format=png&visual_refresh=true"
-            alt="Google Map of campbell" alt="" />
+     <div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoicmljaGFyZDAwNyIsImEiOiJjazQydTNlazgwMHk4M2xveDZ3Z204c2d0In0.59iG9Gu3Zec_yhRHtKiDUQ';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+</script>
+
         </div>
         <div class="large-6 medium-6 cell">
           <div class="people-you-might-know">
@@ -101,99 +105,6 @@
                     </div>
 
                   </div>
-                  
-                  <div class="thank">
-
-
-     <div class="grid-container ">
-                          {{!-- map api --}}
-        <div class="grid-x grid-padding-x  text-center form-set">
-            <div id="map" class="large-6 medium-6 cell">
-                <div id="map"></div>
-              <script>
-                  mapboxgl.accessToken = 'pk.eyJ1IjoicmljaGFyZDAwNyIsImEiOiJjazJxNXVneWEwYXMzM2NwN2hyZzd5NXBqIn0.q06G6080ObPf2dmItIdYwg';
-                  var map = new mapboxgl.Map({
-                  container: 'map',
-                  style: 'mapbox://styles/mapbox/streets-v11'
-                  center: [-122.447303, 37.753574]
-                  });
-              </script>
-            </div>
-
-
-
-              <div class="large-6 medium-6 cell">
-                  <div class="people-you-might-know">
-                      <div class="add-people-header">
-                        <h6 class="header-title">
-                          Shelters near you
-                        </h6>
-                      </div>
-                      <div class="row add-people-section">
-                        <div class="small-12 medium-6 columns about-people">
-                          <div class="about-people-avatar">
-                            <img class="avatar-image" src="https://images.unsplash.com/photo-1551178620-08c30a98f641?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" alt="Happy helpers">
-                          </div>
-                          <div class="about-people-author">
-                            <p class="author-name">
-                              Happy Helpers Shelter
-                            </p>
-                            <p class="author-mutual">
-                                <strong><i class="fas fa-teeth-open"></i> 20</strong> to feed
-                              </p>
-                            <p class="author-location">
-                              <i class="fa fa-map-marker" aria-hidden="true"></i>
-                              Cape Town, South Africa
-                            </p>
-                          </div>    
-                        </div>
-                        <div class="small-12 medium-6 columns add-friend">
-
-                        </div>
-                      </div>
-                      <div class="row add-people-section">
-                        <div class="small-12 medium-6 columns about-people">
-                          <div class="about-people-avatar">
-                            <img class="avatar-image" src="https://images.unsplash.com/photo-1551178620-08c30a98f641?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" alt="Happy helpers">
-                          </div>
-                          <div class="about-people-author">
-                            <p class="author-name">
-                              Happy Helpers Shelter
-                            </p>
-                            <p class="author-mutual">
-                              <strong><i class="fas fa-teeth-open"></i> 17</strong> to feed
-                              </p>
-                            <p class="author-location">
-                              <i class="fa fa-map-marker" aria-hidden="true"></i>
-                              Cape Town, South Africa
-                            </p>
-                          </div>    
-                        </div>
-                        <div class="small-12 medium-6 columns add-friend">
-
-                        </div>
-                      </div>
-                      <div class="row add-people-section">
-                        <div class="small-12 medium-6 columns about-people">
-                          <div class="about-people-avatar">
-                            <img class="avatar-image" src="https://images.unsplash.com/photo-1551178620-08c30a98f641?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" alt="Happy helpers">
-                          </div>
-                          <div class="about-people-author">
-                            <p class="author-name">
-                              Happy Helpers Shelter
-                            </p>
-                            <p class="author-mutual">
-                              <strong><i class="fas fa-teeth-open"></i> 15 </strong> to feed
-                              </p>
-                            <p class="author-location">
-                              <i class="fa fa-map-marker" aria-hidden="true"></i>
-                              Cape Town, South Africa
-                            </p>
-                          </div>    
-                        </div>
-                        <div class="small-12 medium-6 columns add-friend">
-
-                        </div>
                 </div>
               </div>
             </div>
